@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen font-sans transition-colors duration-300 bg-white dark:bg-neutral-900 overflow-hidden">
+  <div class="min-h-screen font-sans transition-colors duration-300 bg-neutral-50 dark:bg-neutral-900 overflow-hidden">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
@@ -22,7 +22,7 @@ body {
 /* Smooth page transitions */
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.3s ease-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .page-enter-from {
   opacity: 0;
@@ -32,8 +32,6 @@ body {
   opacity: 0;
   transform: translateY(-20px);
 }
-
-
 
 /* Better touch targets for mobile */
 button, a {
@@ -52,5 +50,18 @@ button, a {
 }
 ::-webkit-scrollbar-thumb {
   @apply bg-neutral-300 dark:bg-neutral-600 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-400 dark:bg-neutral-500;
+}
+
+/* Focus styles */
+*:focus-visible {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-white dark:ring-offset-neutral-900;
+}
+
+/* Selection styles */
+::selection {
+  @apply bg-primary-500/20 text-primary-900;
 }
 </style>
